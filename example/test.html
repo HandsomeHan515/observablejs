@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../dist/bundle.js"></script>
+    <script>
+        let data = {
+            a: '111',
+            b: '222',
+            c: [1, 2, 3]
+        }
+        // 将 data 进行响应式操作
+        new Observer(data)
+
+        const w = new Watcher(data, 'a', (val, oldVal) => {
+            console.log('new: %o old: %o', val, oldVal)
+        })
+
+        data.a = 222 // new: 2 old: "111"
+
+        const two = new Watcher(data, 'c', (val, oldVal) => {
+            console.log('new: %o\nold: %o', val, oldVal)
+        })
+
+        data.c = [1, 2, 3].push(4)
+    </script>
+</body>
+
+</html>
