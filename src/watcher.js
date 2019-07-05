@@ -1,5 +1,5 @@
-import Dep from './dep'
-import { parsePath } from './util'
+import Dep from './dep.js'
+import { parsePath } from './util.js'
 
 export default class Watcher {
     constructor(vm, expOrFn, cb) {

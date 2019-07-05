@@ -1,10 +1,11 @@
-import Dep from './dep'
-import Watcher from './watcher'
-import { arrayMethods } from './array'
-import { def, hasOwn, isObject, hasProto } from './util'
+import Dep from './dep.js'
+import Watcher from './watcher.js'
+import { arrayMethods } from './array.js'
+import { def, hasOwn, isObject, hasProto } from './util.js'
 
 const arrayKeys = Object.getOwnPropertyNames(arrayMethods)
-export class Observer {
+
+class Observer {
     constructor(value) {
         this.value = value
         this.dep = new Dep()
@@ -47,7 +48,7 @@ function copyAugment (target, src, keys) {
     }
 }
 
-export function observe (value, asRootData) {
+function observe (value, asRootData) {
     if (!isObject(value)) {
         return
     }
@@ -61,7 +62,7 @@ export function observe (value, asRootData) {
     return ob
 }
 
-export function defineReactive (data, key, val) {
+function defineReactive (data, key, val) {
     let dep = new Dep()
     let childOb = observe(val)
     Object.defineProperty(data, key, {
@@ -84,8 +85,8 @@ export function defineReactive (data, key, val) {
     })
 }
 
-// test 
-window.Observer = Observer
+// Fot test.
 window.Watcher = Watcher
+window.Observer = Observer
 
-export { Watcher }
+export { Watcher, Observer }

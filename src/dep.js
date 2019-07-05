@@ -1,4 +1,4 @@
-import { remove } from './util'
+import { remove } from './util.js'
 
 export default class Dep {
     constructor() {

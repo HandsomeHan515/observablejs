@@ -1,4 +1,4 @@
-import { def } from './util'
+import { def } from './util.js'
 
 const arrayProto = Array.prototype
 export const arrayMethods = Object.create(arrayProto)

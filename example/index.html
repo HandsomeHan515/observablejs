@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <script type="module">
-        import { Watcher, Observer } from '../src/index.js'
+    <script src="../dist/bundle.js"></script>
+    <script>
         let data = {
             a: '111',
             b: '222',
@@ -18,6 +18,8 @@
         }
         // 将 data 进行响应式操作
         new Observer(data)
+
+        // console.log('data', data)
 
         const w = new Watcher(data, 'a', (val, oldVal) => {
             console.log('new: %o old: %o', val, oldVal)
@@ -29,7 +31,7 @@
             console.log('new: %o\nold: %o', val, oldVal)
         })
 
-        data.c = [1, 2, 3].push(4)
+        data.c.push(4)
     </script>
 </body>
 

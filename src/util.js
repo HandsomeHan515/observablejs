@@ -11,7 +11,7 @@ export function remove (arr, item) {
 
 export function def (obj, key, val, enumerable) {
     Object.defineProperty(obj, key, {
-        vlaue: val,
+        value: val,
         enumerable: !!enumerable,
         writable: true,
         configurable: true
